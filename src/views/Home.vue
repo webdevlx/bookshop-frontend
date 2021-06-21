@@ -1,18 +1,40 @@
 <template>
-  <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div class="row">
+    <Book
+      v-for="book in getBooks"
+      :key="book.id"
+      :image="`'${book.id}'`"
+      :name="book.name"
+      :description="book.text"
+    />
+
+    <Pagination />
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
-
+import Book from "../components/Book.vue";
+import Pagination from "../components/Pagination.vue";
+import { mapGetters, mapActions } from "vuex";
 export default {
-  name: 'Home',
-  components: {
-    HelloWorld
-  }
-}
+  components: { Pagination, Book },
+  computed: {
+    ...mapGetters(["getBooks"]),
+  },
+  methods: {
+    ...mapActions(["fetchBooks"]),
+  },
+  mounted() {
+    this.fetchBooks()
+      .then(() => {
+        console.log("kitoblar yangilandi");
+      })
+      .catch(() => {
+        console.log("Kitoblarni yangilashda xatolik yuz berdi");
+      });
+  },
+};
 </script>
+
+<style scoped>
+</style>
