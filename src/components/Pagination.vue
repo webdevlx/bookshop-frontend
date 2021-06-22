@@ -1,5 +1,5 @@
 <template>
-  <div class="col-12">
+  <div class="col-12 my-3">
     <nav aria-label="...">
       <ul class="pagination">
         <li class="page-item disabled">

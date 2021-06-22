@@ -7,7 +7,7 @@
       :name="book.name"
       :description="book.text"
     />
-
+    
     <Pagination />
   </div>
 </template>

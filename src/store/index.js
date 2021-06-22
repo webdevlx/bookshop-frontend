@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
+import token from './plugins/token'
 import book from './plugins/book'
 import category from './plugins/category'
 
@@ -15,6 +16,7 @@ export default new Vuex.Store({
   getters: {
   },
   modules: {
+    token,
     book,
     category
   }

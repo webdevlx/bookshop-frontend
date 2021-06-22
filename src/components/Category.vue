@@ -1,5 +1,5 @@
 <template>
-  <div class="list-group my-3" id="list-tab" role="tablist">
+  <div v-if="getCategories.length > 0" class="list-group my-3" id="list-tab" role="tablist">
     <a
       class="list-group-item list-group-item-action active"
       id="list-home-list"
