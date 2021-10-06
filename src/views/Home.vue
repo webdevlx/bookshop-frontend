@@ -8,7 +8,7 @@
       :description="book.text"
     />
     
-    <Pagination />
+    <Pagination v-if="getBooks.length > 0" />
   </div>
 </template>
 

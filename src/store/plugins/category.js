@@ -16,7 +16,7 @@ export default {
   actions: {
     fetchCategories(context) {
       return new Promise((resolve, reject) => {
-        axios.get('http://localhost:8505/api/categories')
+        axios.get('https://lx-bookshop.herokuapp.com/api/categories')
           .then((response) => {
             context.commit("UPDATE_CATEGORIES", response.data)
             resolve()

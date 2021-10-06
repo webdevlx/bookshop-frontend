@@ -4,7 +4,7 @@ export default {
   actions: {
     fetchToken(context, data) {
       return new Promise((resolve, reject) => {
-        axios.post('http://localhost:8505/api/users/auth', data)
+        axios.post('https://lx-bookshop.herokuapp.com/api/users/auth', data)
         .then(response => {
           console.log(response.data.accessToken)
           localStorage.setItem('token', response.data.accessToken)

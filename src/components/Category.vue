@@ -7,6 +7,7 @@
       href="#list-home"
       role="tab"
       aria-controls="list-home"
+      @click="loadBooksByCategoryId(undefined)"
       >Barchasi</a
     >
     <a
@@ -18,6 +19,7 @@
       href="#list-profile"
       role="tab"
       aria-controls="list-profile"
+      @click="loadBooksByCategoryId(category.id)"
       >{{ category.name }}</a
     >
   </div>
@@ -30,7 +32,10 @@ export default {
     ...mapGetters(["getCategories"]),
   },
   methods: {
-    ...mapActions(["fetchCategories"]),
+    ...mapActions(["fetchCategories", "fetchBooks"]),
+    loadBooksByCategoryId(categoryId) {
+      this.fetchBooks(categoryId)
+    }
   },
   mounted() {
     this.fetchCategories()

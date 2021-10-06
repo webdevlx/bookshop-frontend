@@ -3,7 +3,7 @@ import store from '../index'
 
 axios.interceptors.request.use(
   function (config) {
-    if (config.url !== 'http://localhost:8505/api/users/auth') {
+    if (config.url !== 'https://lx-bookshop.herokuapp.com/api/users/auth') {
       config.headers.common['Authorization'] = 'Bearer ' + store.getters.getToken
     }
     return config

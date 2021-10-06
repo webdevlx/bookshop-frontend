@@ -14,9 +14,16 @@ export default {
     }
   },
   actions: {
-    fetchBooks(context) {
+    fetchBooks(context, data) {
+
+      let category = ''
+
+      if(data !== undefined) {
+        category = '?category=' + data
+      }
+
       return new Promise((resolve, reject) => {
-        axios.get('http://localhost:8505/api/books')
+        axios.get('https://lx-bookshop.herokuapp.com/api/books' + category)
           .then((response) => {
             context.commit("UPDATE_BOOKS", response.data)
             resolve()
