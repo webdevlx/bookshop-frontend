@@ -29,9 +29,9 @@ export default {
     ...mapActions(['fetchToken', 'fetchCategories', 'fetchBooks']),
     onSubmit() {
       this.fetchToken(this.user).then(() => {
+        this.$router.push('/')
         this.fetchCategories()
         this.fetchBooks()
-        this.$router.push('/')
       })
     }
   }

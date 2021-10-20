@@ -17,13 +17,18 @@ export default {
     fetchBooks(context, data) {
 
       let category = ''
+      let page = ''
 
-      if(data !== undefined) {
-        category = '?category=' + data
+      if(data.category !== undefined) {
+        category = '?category=' + data.category
+      }
+
+      if(data.page !== undefined) {
+        page = '?page=' + data.page
       }
 
       return new Promise((resolve, reject) => {
-        axios.get('https://lx-bookshop.herokuapp.com/api/books' + category)
+        axios.get('https://lx-bookshop.herokuapp.com/api/books' + category + page)
           .then((response) => {
             context.commit("UPDATE_BOOKS", response.data)
             resolve()

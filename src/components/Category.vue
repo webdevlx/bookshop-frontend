@@ -1,5 +1,10 @@
 <template>
-  <div v-if="getCategories.length > 0" class="list-group my-3" id="list-tab" role="tablist">
+  <div
+    v-if="getCategories.length > 0"
+    class="list-group my-3"
+    id="list-tab"
+    role="tablist"
+  >
     <a
       class="list-group-item list-group-item-action active"
       id="list-home-list"
@@ -26,7 +31,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters, mapActions } from "vuex";
 export default {
   computed: {
     ...mapGetters(["getCategories"]),
@@ -34,8 +39,8 @@ export default {
   methods: {
     ...mapActions(["fetchCategories", "fetchBooks"]),
     loadBooksByCategoryId(categoryId) {
-      this.fetchBooks(categoryId)
-    }
+      this.fetchBooks({ category: categoryId });
+    },
   },
   mounted() {
     this.fetchCategories()

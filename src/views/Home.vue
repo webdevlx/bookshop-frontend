@@ -7,7 +7,7 @@
       :name="book.name"
       :description="book.text"
     />
-    
+
     <Pagination v-if="getBooks.length > 0" />
   </div>
 </template>
@@ -25,7 +25,7 @@ export default {
     ...mapActions(["fetchBooks"]),
   },
   mounted() {
-    this.fetchBooks()
+    this.fetchBooks({})
       .then(() => {
         console.log("kitoblar yangilandi");
       })
